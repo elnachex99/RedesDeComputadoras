@@ -34,9 +34,9 @@ Las direcciones IP utilizadas inicialmente fueron:
 | PC-A        | NIC       | 192.168.10.3 | 255.255.255.0 |   
 | PC-B        | NIC       | 192.168.10.4 | 255.255.255.0 |      
 
-![Configuracion de ip de PC-A](./Capturas%20de%20Pantalla/Configuracion%20de%20ip%20de%20la%20PC-A.PNG)
+![Configuracion de ip de PC-A](./Capturas%20de%20Pantalla/Configuracion%20de%20IP%20de%20la%20PC-A.PNG)
 
-![Configuracion de ip de PC-B](./Capturas%20de%20Pantalla/Configuracion%20de%20ip%20de%20la%20PC-B.PNG)
+![Configuracion de ip de PC-B](./Capturas%20de%20Pantalla/Configuracion%20de%20IP%20de%20la%20PC-B.PNG)
 
 ---
 
