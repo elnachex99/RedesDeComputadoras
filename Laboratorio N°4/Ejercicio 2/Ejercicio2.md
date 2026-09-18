@@ -63,12 +63,14 @@ Configuramos las redes VLAN para ambos switches. Inicialmente, se configuró la 
 * SW-1: 
     * ip address: _**192.168.1.11**_
     * mascara: _**255.255.255.0**_
-![Configuracion de la VLAN inicial del SW-1](./Capturas%20de%20Pantalla/Configuracion%20de%20la%20IP%20de%20administración%20de%20SW-1.PNG)
+
+    ![Configuracion de la VLAN inicial del SW-1](./Capturas%20de%20Pantalla/Configuracion%20de%20la%20IP%20de%20administración%20de%20SW-1.PNG)
 
 * SW-2: 
     * ip address: _**192.168.1.12**_
     * mascara: _**255.255.255.0**_
-![Configuracion de la VLAN inicial del SW-2](./Capturas%20de%20Pantalla/Configuracion%20de%20la%20IP%20de%20administración%20de%20SW-2.PNG)
+
+    ![Configuracion de la VLAN inicial del SW-2](./Capturas%20de%20Pantalla/Configuracion%20de%20la%20IP%20de%20administracion%20de%20SW-2.PNG)
 
 ---
 
@@ -122,11 +124,41 @@ _Tras analizar los datos, podemos decir que la VLAN utilizada por defecto por el
 ---
 
 ## Consigna 2.j
+Para avanzar con los testeos, se asigno la PC-A a la VLAN Laboratorio (VLAN numero 10)
+
+![PC-A a la VLAN Laboratorio](./Capturas%20de%20Pantalla/Asignar%20la%20PC-A%20a%20la%20VLAN%20Laboratorio.PNG)
+
+Al seleccionar y utilizar el comando _**interface fastethernet 0/6**_ , conectamos la PC-A al puerto _**FastEthernet0/6**_ de SW-1. De esta manera, el puerto Fa0/6 quedó configurado como puerto de acceso perteneciente a la VLAN llamada "Laboratorio" (VLAN 10).
 
 ---
 
-## Consigna 2.k
+## Consigna 2.k.m
+Posteriormente, se modificó la configuración de administración del switch, ya que desde la VLAN 1, removimos la IP de Management y la configuramos para que funcionara en la VLAN 99. Es decir, la dirección IP que inicialmente se encontraba asociada a la VLAN 1 fue eliminada, luego se configuró la interfaz virtual correspondiente a la VLAN 99
+__En SW-2 se realizó el mismo procedimiento utilizando su dirección correspondiente__
+De esta manera, la administración de ambos switches pasó de la VLAN 1 a la VLAN 99, tal que:
 
---
+![Administración del SW-1 de VLAN 1 a VLAN 99](./Capturas%20de%20Pantalla/Punto%202-K%20para%20el%20SW-1.PNG)
+
+![Administración del SW-2 de VLAN 1 a VLAN 99](./Capturas%20de%20Pantalla/Punto%202-K%20para%20el%20SW-2.PNG)
+
+---
 
 ## Consigna 2.l
+Verificamos el estado de las VLANs y las INTERFACES utilizando los comandos _**show vlan brief**_ y _**show ip interface brief**_ respectivamente, tal que:
+
+![Estado de las VLANs y las INTERFACES](./Capturas%20de%20Pantalla/Punto%202-l.PNG)
+
+---
+
+## Consigna 2.n
+Finalmente, para comprobar la correcta comunicacion y/o conectividad entre PC-A y PC-B utilizando las VLANs, realizamos un ping desde PC-A a la direccion _**192.168.10.4**_, y otro ping desde PC-B a la direccion _**192.168.10.3**_. Como resultado, obtuvimos lo siguiente:
+
+![Conectividad entre PC-A y PC-B](./Capturas%20de%20Pantalla/Punto%202-n.PNG)
+
+Estas pruebas permitieron comprobar, respectivamente, la comunicación entre los equipos pertenecientes a la VLAN 10 y la comunicación entre las interfaces de administración de los switches.
+
+## Conclusion
+
+En esta actividad pudimos implementar y configurar una red local utilizando una herramienta como lo es Cisco. Se realizo la configuracion basica de los switches, incluyendo nombres, contraseñas y "mecanismos" de proteccion de las mismas. 
+Por otro lado, se crearon VLANs y se asignaron a puertos especificos. Posteriormente, la administracion de los switches fue trasladada desde la VLAN 1 hacia la VLAN 99.
+Finalmente, se configuro el enlace entre los switches, el cual permitio el transporte de las VLANs y se realizaron pruebas de conectividad entre los distintos dispositivos usando _**ping**_.
