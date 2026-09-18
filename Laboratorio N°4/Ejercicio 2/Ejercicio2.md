@@ -40,20 +40,19 @@ Las direcciones IP utilizadas inicialmente fueron:
 
 ---
 
-## Consigna 2.a
+## Consigna 2.a.b.c.
 Desde cada computadora (PC-A y PC-B) se accedió a la interfaz de línea de comandos (CLI) de SW-1 y de SW-2 respectivamente, ingresamos a la terminal y configuramos los switches de la siguiente forma:
 
-`[Configuracion del SW-1](C:\Users\ramir\OneDrive\Escritorio\Rami\Facu\Cuarto Año - Segundo Semestre - Plan Nuevo\Redes de Computadoras\Repo GITHUB\Laboratorio N°4\Ejercicio 2\Capturas de Pantalla\Configuracion del Switch-1.PNG)`
+* Se estableció el nombre del dispositivo mediante: **hostname sw1** y **hostname sw2** respectivamente. Por lo tanto, los switches quedaron identificados como sw1 y sw2
+* Se configuraron/asignaron contraseñas para el modo privilegiado, la consola y las líneas VTY
+  * Para el acceso privilegiado se utilizó: **enable secret contrasena_exec**
+  * Para la consola se utilizó: **password contrasena_consola**
+  * Para la consola se utilizó: **password contrasena_vty**
+* Para evitar que las contraseñas configuradas aparezcan en texto plano dentro de la configuración del dispositivo, se utilizó: **service password-encryption**
 
-`[Configuracion del SW-2](C:\Users\ramir\OneDrive\Escritorio\Rami\Facu\Cuarto Año - Segundo Semestre - Plan Nuevo\Redes de Computadoras\Repo GITHUB\Laboratorio N°4\Ejercicio 2\Capturas de Pantalla\Configuracion del Switch-2.PNG)`
+![Configuracion del SW-1](./Capturas%20de%20Pantalla/Configuracion%20del%20Switch-1.PNG)
 
----
-
-## Consigna 2.b
-
----
-
-## Consigna 2.c
+![Configuracion del SW-2](./Capturas%20de%20Pantalla/Configuracion%20del%20Switch-2.PNG)
 
 ---
 
