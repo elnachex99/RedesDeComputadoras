@@ -16,10 +16,10 @@
 
 ---
 
-## Consigna 2.a
+## Consigna 2
 En esta actividad se implementó en Cisco Packet Tracer una red local compuesta por dos switches, SW-1 y SW-2, y dos computadoras, PC-A y PC-B, tal que:
 
-`[Implementacion](C:\Users\ramir\OneDrive\Escritorio\Rami\Facu\Cuarto Año - Segundo Semestre - Plan Nuevo\Redes de Computadoras\Repo GITHUB\Laboratorio N°4\Ejercicio 2\Capturas de Pantalla\Implementacion del punto 2.PNG)`
+![Implementacion](./Capturas%20de%20Pantalla/Implementacion%20del%20punto%202.PNG)
 
 La topologia implementada fue: 
 
@@ -34,9 +34,9 @@ Las direcciones IP utilizadas inicialmente fueron:
 | PC-A        | NIC       | 192.168.10.3 | 255.255.255.0 |   
 | PC-B        | NIC       | 192.168.10.4 | 255.255.255.0 |      
 
-`[Configuracion de ip de PC-A](C:\Users\ramir\OneDrive\Escritorio\Rami\Facu\Cuarto Año - Segundo Semestre - Plan Nuevo\Redes de Computadoras\Repo GITHUB\Laboratorio N°4\Ejercicio 2\Capturas de Pantalla\Configuracion de ip de la PC-A.PNG)`
+![Configuracion de ip de PC-A](./Capturas%20de%20Pantalla/Configuracion%20de%20ip%20de%20la%20PC-A.PNG)
 
-`[Configuracion de ip de PC-B](C:\Users\ramir\OneDrive\Escritorio\Rami\Facu\Cuarto Año - Segundo Semestre - Plan Nuevo\Redes de Computadoras\Repo GITHUB\Laboratorio N°4\Ejercicio 2\Capturas de Pantalla\Configuracion de ip de la PC-B.PNG)`
+![Configuracion de ip de PC-B](./Capturas%20de%20Pantalla/Configuracion%20de%20ip%20de%20la%20PC-B.PNG)
 
 ---
 
