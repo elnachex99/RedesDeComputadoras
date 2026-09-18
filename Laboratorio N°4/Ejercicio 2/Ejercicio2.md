@@ -23,6 +23,7 @@ En esta actividad se implementó en Cisco Packet Tracer una red local compuesta 
 ![Implementacion](./Capturas%20de%20Pantalla/Implementacion%20del%20punto%202.PNG)
 
 La topologia implementada fue: 
+
  PC-A ───── SW-1 ───── SW-2 ───── PC-B    
 
 Las direcciones IP utilizadas inicialmente fueron:
@@ -35,9 +36,11 @@ Las direcciones IP utilizadas inicialmente fueron:
 | PC-B        | NIC       | 192.168.10.4 | 255.255.255.0 |      
 
 - ***PC-A:***
+
 ![Configuracion de ip de PC-A](./Capturas%20de%20Pantalla/Configuracion%20de%20IP%20de%20la%20PC-A.PNG)
 
 - ***PC-B:***
+
 ![Configuracion de ip de PC-B](./Capturas%20de%20Pantalla/Configuracion%20de%20IP%20de%20la%20PC-B.PNG)
 
 ---
@@ -55,9 +58,11 @@ Desde cada computadora (PC-A y PC-B) se accedió a la interfaz de línea de coma
 * Para evitar que las contraseñas configuradas aparezcan en texto plano dentro de la configuración del dispositivo, se utilizó: _**service password-encryption**_
 
 - ***SWITCH 1:***
+
 ![Configuracion del SW-1](./Capturas%20de%20Pantalla/Configuracion%20del%20Switch-1.PNG)
 
 - ***SWITCH 2:***
+
 ![Configuracion del SW-2](./Capturas%20de%20Pantalla/Configuracion%20del%20Switch-2.PNG)
 
 ---
@@ -85,11 +90,13 @@ Configuramos las redes VLAN para ambos switches. Inicialmente, se configuró la 
 Procedimos a desconectar/deshabilitar las interfaces que no estaban siendo utilizadas, tal que:
 
 - ***SWITCH 1:***
+
 ![Shutdown de interfaces NO utilizadas en el SW-1 (Parte 1)](./Capturas%20de%20Pantalla/Punto%202-e%20del%20SW-1%20(parte%201).PNG)
 ![Shutdown de interfaces NO utilizadas en el SW-1 (Parte 2)](./Capturas%20de%20Pantalla/Punto%202-e%20del%20SW-1%20(parte%202).PNG)
 ![Shutdown de interfaces NO utilizadas en el SW-1 (Parte 3)](./Capturas%20de%20Pantalla/Punto%202-e%20del%20SW-1%20(parte%203).PNG)
 
 - ***SWITCH 2:***
+
 ![Shutdown de interfaces NO utilizadas en el SW-2 (Parte 1)](./Capturas%20de%20Pantalla/Punto%202-e%20del%20SW-2%20(parte%201).PNG)
 ![Shutdown de interfaces NO utilizadas en el SW-2 (Parte 2](./Capturas%20de%20Pantalla/Punto%202-e%20del%20SW-2%20(parte%202).PNG)
 
@@ -100,9 +107,11 @@ Una vez que terminamos la configuracion de cada switch, guardamos la informacion
 
 
 - ***SWITCH 1:***
+
 ![Guardado de memoria del SW-1](./Capturas%20de%20Pantalla/Punto%202-f%20del%20SW-1.PNG)
 
 - ***SWITCH 2:***
+
 ![Guardado de memoria del SW-2](./Capturas%20de%20Pantalla/Punto%202-f%20del%20SW-2.PNG)
 
 ---
@@ -131,9 +140,11 @@ Creamos las VLANs en los switches, tal que:
 
 
 - ***SWITCH 1:***
+
 ![VLANs del SW-1](./Capturas%20de%20Pantalla/Creacion%20de%20las%20VLAN%20del%20SW-1.PNG)
 
 - ***SWITCH 2:***
+
 ![VLANs del SW-2](./Capturas%20de%20Pantalla/Creacion%20de%20las%20VLAN%20del%20SW-2.PNG)
 
 _Tras analizar los datos, podemos decir que la VLAN utilizada por defecto por el switch es la VLAN 1_
@@ -156,9 +167,11 @@ De esta manera, la administración de ambos switches pasó de la VLAN 1 a la VLA
 
 
 - ***SWITCH 1:***
+
 ![Administración del SW-1 de VLAN 1 a VLAN 99](./Capturas%20de%20Pantalla/Punto%202-K%20para%20el%20SW-1.PNG)
 
 - ***SWITCH 2:***
+
 ![Administración del SW-2 de VLAN 1 a VLAN 99](./Capturas%20de%20Pantalla/Punto%202-K%20para%20el%20SW-2.PNG)
 
 ---
@@ -180,5 +193,7 @@ Estas pruebas permitieron comprobar, respectivamente, la comunicación entre los
 ## Conclusion
 
 En esta actividad pudimos implementar y configurar una red local utilizando una herramienta como lo es Cisco. Se realizo la configuracion basica de los switches, incluyendo nombres, contraseñas y "mecanismos" de proteccion de las mismas. 
+
 Por otro lado, se crearon VLANs y se asignaron a puertos especificos. Posteriormente, la administracion de los switches fue trasladada desde la VLAN 1 hacia la VLAN 99.
+
 Finalmente, se configuro el enlace entre los switches, el cual permitio el transporte de las VLANs y se realizaron pruebas de conectividad entre los distintos dispositivos usando _**ping**_.
