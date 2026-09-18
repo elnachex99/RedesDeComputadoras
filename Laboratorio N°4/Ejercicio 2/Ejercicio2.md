@@ -19,12 +19,11 @@
 ## Consigna 2
 En esta actividad se implementó en Cisco Packet Tracer una red local compuesta por dos switches, SW-1 y SW-2, y dos computadoras, PC-A y PC-B, tal que:
 
+
 ![Implementacion](./Capturas%20de%20Pantalla/Implementacion%20del%20punto%202.PNG)
 
 La topologia implementada fue: 
-           ── SW-1 ───── SW-2 ───
-         /                        \
-PC-A ───                            ── PC-B
+ PC-A ───── SW-1 ───── SW-2 ───── PC-B    
 
 Las direcciones IP utilizadas inicialmente fueron:
 
@@ -35,8 +34,10 @@ Las direcciones IP utilizadas inicialmente fueron:
 | PC-A        | NIC       | 192.168.10.3 | 255.255.255.0 |   
 | PC-B        | NIC       | 192.168.10.4 | 255.255.255.0 |      
 
+- ***PC-A:***
 ![Configuracion de ip de PC-A](./Capturas%20de%20Pantalla/Configuracion%20de%20IP%20de%20la%20PC-A.PNG)
 
+- ***PC-B:***
 ![Configuracion de ip de PC-B](./Capturas%20de%20Pantalla/Configuracion%20de%20IP%20de%20la%20PC-B.PNG)
 
 ---
@@ -45,14 +46,18 @@ Las direcciones IP utilizadas inicialmente fueron:
 Desde cada computadora (PC-A y PC-B) se accedió a la interfaz de línea de comandos (CLI) de SW-1 y de SW-2 respectivamente, ingresamos a la terminal y configuramos los switches de la siguiente forma:
 
 * Se estableció el nombre del dispositivo mediante: _**hostname sw1**_ y _**hostname sw2**_ respectivamente. Por lo tanto, los switches quedaron identificados como sw1 y sw2
+
 * Se configuraron/asignaron contraseñas para el modo privilegiado, la consola y las líneas VTY
   * Para el acceso privilegiado se utilizó: _**enable secret contrasena_exec**_
   * Para la consola se utilizó: _**password contrasena_consola**_
   * Para la consola se utilizó: _**password contrasena_vty**_
+
 * Para evitar que las contraseñas configuradas aparezcan en texto plano dentro de la configuración del dispositivo, se utilizó: _**service password-encryption**_
 
+- ***SWITCH 1:***
 ![Configuracion del SW-1](./Capturas%20de%20Pantalla/Configuracion%20del%20Switch-1.PNG)
 
+- ***SWITCH 2:***
 ![Configuracion del SW-2](./Capturas%20de%20Pantalla/Configuracion%20del%20Switch-2.PNG)
 
 ---
@@ -60,15 +65,17 @@ Desde cada computadora (PC-A y PC-B) se accedió a la interfaz de línea de coma
 ## Consigna 2.d
 Configuramos las redes VLAN para ambos switches. Inicialmente, se configuró la interfaz virtual correspondiente a VLAN 1 para permitir la administración de los switches. De esta manera, cada switch contó con una dirección IP que permitió identificarlo dentro de la red de administración
 
-* SW-1: 
+- ***SWITCH 1:*** 
     * ip address: _**192.168.1.11**_
     * mascara: _**255.255.255.0**_
 
+
     ![Configuracion de la VLAN inicial del SW-1](./Capturas%20de%20Pantalla/Configuracion%20de%20la%20IP%20de%20administración%20de%20SW-1.PNG)
 
-* SW-2: 
+- ***SWITCH 2:***
     * ip address: _**192.168.1.12**_
     * mascara: _**255.255.255.0**_
+
 
     ![Configuracion de la VLAN inicial del SW-2](./Capturas%20de%20Pantalla/Configuracion%20de%20la%20IP%20de%20administracion%20de%20SW-2.PNG)
 
@@ -77,10 +84,12 @@ Configuramos las redes VLAN para ambos switches. Inicialmente, se configuró la 
 ## Consigna 2.e
 Procedimos a desconectar/deshabilitar las interfaces que no estaban siendo utilizadas, tal que:
 
+- ***SWITCH 1:***
 ![Shutdown de interfaces NO utilizadas en el SW-1 (Parte 1)](./Capturas%20de%20Pantalla/Punto%202-e%20del%20SW-1%20(parte%201).PNG)
 ![Shutdown de interfaces NO utilizadas en el SW-1 (Parte 2)](./Capturas%20de%20Pantalla/Punto%202-e%20del%20SW-1%20(parte%202).PNG)
 ![Shutdown de interfaces NO utilizadas en el SW-1 (Parte 3)](./Capturas%20de%20Pantalla/Punto%202-e%20del%20SW-1%20(parte%203).PNG)
 
+- ***SWITCH 2:***
 ![Shutdown de interfaces NO utilizadas en el SW-2 (Parte 1)](./Capturas%20de%20Pantalla/Punto%202-e%20del%20SW-2%20(parte%201).PNG)
 ![Shutdown de interfaces NO utilizadas en el SW-2 (Parte 2](./Capturas%20de%20Pantalla/Punto%202-e%20del%20SW-2%20(parte%202).PNG)
 
@@ -89,8 +98,11 @@ Procedimos a desconectar/deshabilitar las interfaces que no estaban siendo utili
 ## Consigna 2.f
 Una vez que terminamos la configuracion de cada switch, guardamos la informacion usando el comando _**write memory**_
 
+
+- ***SWITCH 1:***
 ![Guardado de memoria del SW-1](./Capturas%20de%20Pantalla/Punto%202-f%20del%20SW-1.PNG)
 
+- ***SWITCH 2:***
 ![Guardado de memoria del SW-2](./Capturas%20de%20Pantalla/Punto%202-f%20del%20SW-2.PNG)
 
 ---
@@ -98,10 +110,12 @@ Una vez que terminamos la configuracion de cada switch, guardamos la informacion
 ## Consigna 2.g
 Finalmente, probamos la comunicacion mediante un ping, tal que:
 
-* Desde PC-A: hacemos _**ping 192.168.10.4**_
+- ***DESDE PC-A:*** hacemos _**ping 192.168.10.4**_
+
 ![Ping desde PC-A](./Capturas%20de%20Pantalla/Punto%202-g%20PC-A.PNG)
 
-* Desde PC-B: hacemos _**ping 192.168.10.3**_
+- ***DESDE PC-B:*** hacemos _**ping 192.168.10.3**_
+
 ![Ping desde PC-B](./Capturas%20de%20Pantalla/Punto%202-g%20PC-B.PNG)
 
 ---
@@ -115,8 +129,11 @@ Creamos las VLANs en los switches, tal que:
 |   20   | Bar          | Red destinada al sector Bar       |
 |   99   | Management   | Red destinada a la administración |
 
+
+- ***SWITCH 1:***
 ![VLANs del SW-1](./Capturas%20de%20Pantalla/Creacion%20de%20las%20VLAN%20del%20SW-1.PNG)
 
+- ***SWITCH 2:***
 ![VLANs del SW-2](./Capturas%20de%20Pantalla/Creacion%20de%20las%20VLAN%20del%20SW-2.PNG)
 
 _Tras analizar los datos, podemos decir que la VLAN utilizada por defecto por el switch es la VLAN 1_
@@ -137,8 +154,11 @@ Posteriormente, se modificó la configuración de administración del switch, ya
 __En SW-2 se realizó el mismo procedimiento utilizando su dirección correspondiente__
 De esta manera, la administración de ambos switches pasó de la VLAN 1 a la VLAN 99, tal que:
 
+
+- ***SWITCH 1:***
 ![Administración del SW-1 de VLAN 1 a VLAN 99](./Capturas%20de%20Pantalla/Punto%202-K%20para%20el%20SW-1.PNG)
 
+- ***SWITCH 2:***
 ![Administración del SW-2 de VLAN 1 a VLAN 99](./Capturas%20de%20Pantalla/Punto%202-K%20para%20el%20SW-2.PNG)
 
 ---
