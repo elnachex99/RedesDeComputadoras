@@ -65,6 +65,7 @@ Una posible clasificacion podria ser la siguiente
 
 ## Consigna 1.c
 **Protocolo IEEE 802.1Q**
+
 El protocolo IEEE 802.1Q (conocido como Dot1q) es un protocolo utilizado para identificar y transmitir tramas de múltiples VLANs (Redes de Área Local Virtuales) por medio de una red Ethernet compartida. Este protocolo agrega un Tag en las tramas Ethernet para que los dispositivos de red puedan reconocer a qué red lógica pertenece cada trama.
 
 La relación con las VLANs radica en que el estándar 802.1Q es el que permite que una misma VLAN pueda extenderse a través de varios switches, transportando sus tramas etiquetadas por enlaces troncales.
