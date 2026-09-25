@@ -76,5 +76,11 @@ Además podemos destacar dos características:
 
 ## Consigna 1.d
 **Tagging (Etiquetado)** 
-El concepto de Tagging se refiere al proceso mediante el cual se inserta la etiqueta VLAN (mencionada en el punto anterior) en una trama Ethernet estándar. Dado que las computadoras tradicionales o dispositivos finales (considerados dispositivos "heredados") generalmente no manejan información de VLAN de forma nativa, estos transmiten y esperan recibir sus tramas sin ningún tipo de etiqueta.   Por este motivo, el primer switch compatible con VLAN que recibe una trama sin etiquetar desde un dispositivo emisor es el encargado de generar y agregar esta etiqueta, basándose en la configuración del puerto de acceso por el que ingresó. Una vez que la trama etiquetada viaja por la red troncal y alcanza el último switch antes del destino final, este dispositivo se encarga de eliminar la etiqueta y devolverle a la trama su formato heredado u original antes de entregarla al dispositivo receptor. 
+
+El Tagging es el proceso de insertar un campo adicional, denominado etiqueta VLAN, dentro de un paquete de datos. Según el estándar IEEE 802.1Q, esta etiqueta se ubica después de la dirección MAC de origen y contiene el número de VLAN asignado al puerto por donde ingresó la trama.   
+El ciclo de vida de esta etiqueta sigue estas reglas:
+
+- **Transparencia:** Las computadoras conectadas a un switch envían y reciben las tramas sin contener ninguna etiqueta VLAN.
+- **Uso interno y remoción:** La etiqueta se utiliza exclusivamente de forma interna. Una vez que el switch selecciona el puerto de salida hacia el dispositivo final, la etiqueta es eliminada antes de transmitir la trama.
+- **Excepción (enlaces entre switches):** Un administrador puede configurar puertos específicos para que no eliminen las etiquetas VLAN al enviar tramas. Esto permite que dos o más switches compartan sus configuraciones y operen en conjunto como un único gran conmutador.   
 
