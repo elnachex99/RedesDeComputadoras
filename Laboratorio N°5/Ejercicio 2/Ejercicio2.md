@@ -48,7 +48,7 @@ e) Ver la caché ARP de su computadora y buscar la entrada del gateway:
 Al consultar la caché ARP con arp -a se observó que la puerta de enlace predeterminada 192.168.1.1 está asociada a la dirección MAC 64:fd:96:d8:88:57.
 Al analizar en Wireshark un ICMP Echo Request enviado a 8.8.8.8, la MAC destino de la trama Ethernet también fue 64:fd:96:d8:88:57. Por lo tanto coinciden. Esto se da porque aunque la dirección IP destino sea 8.8.8.8, al estar fuera de la red local la trama Ethernet se envía al gateway como siguiente salto.
 
-![MAC destino del gateway en un ICMP hacia 8.8.8.8](img/icmp_gateway_mac.png)
+![MAC destino del gateway en un ICMP hacia 8.8.8.8](Evidencias/icmp_gateway_mac.png)
 
 f) Generar tráfico ARP y capturarlo. Capturen en la interfaz Wi-Fi/Ethernet con el filtro arp.
 
@@ -59,7 +59,7 @@ En Wireshark, utilizando el filtro arp, se observaron varios ARP Request
 enviados desde 192.168.1.11 a broadcast consultando por la dirección
 192.168.1.253. No se recibió ningún ARP Reply.
 
-![Captura ARP hacia IP inexistente](img/arp_ip_inexistente.png)
+![Captura ARP hacia IP inexistente](Evidencias/arp_ip_inexistente.png)
 
 ### Análisis de ARP Request y ARP Reply
 
@@ -73,9 +73,9 @@ enviados desde 192.168.1.11 a broadcast consultando por la dirección
 | Target MAC address | 00:00:00:00:00:00 | 08:6a:c5:6a:45:c3 |
 | Target IP address | 192.168.1.1 | 192.168.1.11 |
 
-![ARP Request al gateway](img/arp_req_gateway.png)
+![ARP Request al gateway](Evidencias/arp_req_gateway.png)
 
-![ARP Reply del gateway](img/arp_reply_gateway.png)
+![ARP Reply del gateway](Evidencias/arp_reply_gateway.png)
 
 a) ¿Por qué el Request va a broadcast y el Reply no? ¿Qué valor tiene Target MAC address en el Request y por qué?
 
