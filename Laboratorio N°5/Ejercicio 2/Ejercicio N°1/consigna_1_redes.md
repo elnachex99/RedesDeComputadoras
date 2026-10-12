@@ -45,7 +45,7 @@ El payload del ping se encuentra al final del paquete ICMP,identificado en la se
 En Windows ocupa 32 bytes de longitud y contiene la secuencia de caracteres ASCII de prueba (`abcde…`) y tanto en el Echo Reply como en el Echo Request ,el payload es exactamente los mismos 32 bytes.  
 En comparación con Linux el payload cambia su tamaño ,en Linux el tamaño predeterminado es de 48 bytes.
 
-![payload-Request](img/payload-Request.png)  
+![payload-Request](img/Payload-Request.png)  
 ![Payload-Reply](img/Payload-Reply.png)
 
 ---
