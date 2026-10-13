@@ -22,7 +22,8 @@ Hasta ahora observamos protocolos que usa el sistema operativo. Ahora vamos a *c
 ## Consigna 3.a: ¿Qué significa "establecer una conexión"? ¿Dónde "existe" una conexión TCP: en los cables, en los routers o en los extremos?
 **"Establecer una conexion"** significa realizar/iniciar una negociación previa o una comunicación lógica entre dos extremos para que puedan intercambiar datos. Antes de transmitir información, ambos extremos realizan un procedimiento de negociación llamado three-way handshake (establecimiento en tres pasos), mediante el intercambio de segmentos SYN, SYN-ACK y ACK
 Una conexión TCP no existe físicamente en los cables ni requiere que los routers mantengan un estado propio de esa conexión. Existe principalmente en los extremos de la comunicación, es decir, en los equipos que ejecutan TCP. Allí se mantiene información sobre la conexión, como los números de secuencia, los números de confirmación y los parámetros de control.
-    _Los cables y routers transportan y encaminan los paquetes, pero TCP administra la conexión lógica entre los extremos_
+
+_Los cables y routers transportan y encaminan los paquetes, pero TCP administra la conexión lógica entre los extremos_
 
 ## Consigna 3.b: ¿Qué es un puerto? ¿Qué identifica el par (IP, puerto)?
 Un puerto es un número lógico utilizado por los protocolos de transporte TCP y UDP para identificar una aplicación o servicio dentro de un equipo. Por otro lado, la dirección IP identifica al equipo dentro de la red, el puerto permite distinguir a qué aplicación deben entregarse los datos.
@@ -30,6 +31,7 @@ El par (IP, puerto) identifica un punto de comunicación asociado a un equipo y 
 
 ## Consigna 3.c: ¿Qué significa que un proceso esté "escuchando" en un puerto?
 Que un proceso esté escuchando en un puerto significa que una aplicación ha solicitado al sistema operativo que mantenga ese puerto disponible para recibir comunicaciones entrantes. En TCP, un servidor normalmente permanece escuchando hasta que llega una solicitud de conexión de un cliente. Entonces puede aceptar la conexión y comenzar a intercambiar datos.
-    _Escuchar en un puerto no significa que ya exista una conexión TCP establecida. Significa que el proceso está preparado para recibir solicitudes de conexión._
+
+_Escuchar en un puerto no significa que ya exista una conexión TCP establecida. Significa que el proceso está preparado para recibir solicitudes de conexión._
 
 ---
