@@ -40,21 +40,14 @@ _Escuchar en un puerto no significa que ya exista una conexión TCP establecida.
 
 ## Capturas iniciales del experimento 
 
-- ***Mensaje enviado desde la terminal A:***
+- ***Terminal A:***
 
 ![Mensaje A](./Evidencias/Mensaje%20A.PNG)
 
-- ***Mensaje enviado desde la terminal B:***
+- ***Terminal B:***
 
 ![Mensaje B](./Evidencias/Mensaje%20B.PNG)
 
-- ***Captura del trafico usando WireShark:***
-
-![Captura de trafico](./Evidencias/Captura%20de%20Trafico.PNG)
-
-- ***Experimento UDP enviando un mensaje en cada sentido:***
-
-![Conexion Previa](./Evidencias/Experimento%20mensaje%20en%20cada%20terminal.PNG)
 
 ## a) ¿Qué pasó en la red cuando ejecutaron el comando del cliente, antes de escribir el primer mensaje? Compárenlo con TCP
 
