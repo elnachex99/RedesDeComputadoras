@@ -38,16 +38,6 @@ _Escuchar en un puerto no significa que ya exista una conexión TCP establecida.
 
 # Experimentos TCP y UDP
 
-## Capturas iniciales del experimento 
-
-- ***Terminal A:***
-
-![Mensaje A](./Evidencias/Mensaje%20A.PNG)
-
-- ***Terminal B:***
-
-![Mensaje B](./Evidencias/Mensaje%20B.PNG)
-
 
 ## a) ¿Qué pasó en la red cuando ejecutaron el comando del cliente, antes de escribir el primer mensaje? Compárenlo con TCP
 
