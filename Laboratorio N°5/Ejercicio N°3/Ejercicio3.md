@@ -35,3 +35,51 @@ Que un proceso esté escuchando en un puerto significa que una aplicación ha so
 _Escuchar en un puerto no significa que ya exista una conexión TCP establecida. Significa que el proceso está preparado para recibir solicitudes de conexión._
 
 ---
+
+# Experimentos TCP y UDP
+
+
+## a) ¿Qué pasó en la red cuando ejecutaron el comando del cliente, antes de escribir el primer mensaje?
+Compárenlo con TCP.
+
+No ocurrió nada hasta que se envió el primer mensaje, esto es porque UDP es un protocolo “ciego” no orientado a la conexión; simplemente envía los datagramas sin un proceso de validación, a diferencia de TCP que antes de enviar cualquier dato genera trafico para establecer la conexión mediante el dialogo en 3 pasos (Three-way handshake) y luego confirma la recepción de los segmentos.
+
+
+## b) ¿Cuántos datagramas generó cada mensaje? ¿Hay algo parecido a un ACK?
+
+Género 1 datagrama por mensaje, no hay nada parecido a un ACK ya que este protocolo no los utiliza, el emisor envía el datagrama y no sabe si llegó o no.
+
+
+## c) Comparen el encabezado UDP con el encabezado TCP de un segmento con datos: ¿qué campos tiene cada uno? ¿Cuántos bytes ocupa cada encabezado? 
+
+El encabezado UDP siempre mide 8 bytes, tiene 4 campos: Source Port, Destination Port, Length y Checksum.
+
+
+En TCP el encabezado mide al menos 20 bytes tiene más campos que el anterior: Source Port, Destination Port, Sequence Number, Acknowledgment Number, Header Length, Flags (SYN, ACK, FIN, RST, PSH, etc), WIndows Size, Checksum, Urgent Pointer y Options.
+
+## d) ¿Qué pasó en la red al cerrar el cliente con Ctrl+C? ¿Y en TCP?
+
+No paso nada en la red, no se envía ningún paquete, el programa solamente se cierra localmente.
+En TCP se enviaron paquetes correspondientes al  cierre (FIN, ACK) y su confirmación de ACK, tal como se observa en la captura
+
+## e) Para enviar la misma frase, ¿cuántos paquetes necesitaron en total con TCP y cuántos con UDP? ¿Qué "compran" con los paquetes extra de TCP?
+
+En TCP se necesitaron 9 paquetes para poder enviar una frase, incluyendo los 3 del Handshake para establecer la conexión, los dos paquetes del mensaje (el que contiene la frase y la confirmación de recepción)  y los 4 de cierre
+
+(se puede observar los 3 paquetes para establecer conexión, 2 paquetes por mensaje, es decir 12 paquetes y los 4 de cierre)
+
+. En UDP se necesitó un solo paquete.
+
+Compran confiabilidad y control de errores, en TCP si algún paquete se perdiera este lo sabría y pediría la retransmisión, en cambio en UDP directamente no se sabría si llegó o no.
+
+## f) ¿Y si nadie escucha? 
+
+En TCP al intentar conectarse se envia un SYN, pero el sistema operativo de la maquina destino responde con un [RST, ACK]  rechazando la conexion. El programa cliente se cierra indicando que la conexión fue rechazada.
+En UDP el cliente no sabe que el puerto esta cerrado, asi que envía el datagrama con el msj, el sistema operativo destino responde utilizando el protocolo ICMP con un mensaje de tipo “Destination unreacheable (Port unreachable). 
+
+
+
+
+
+
+
