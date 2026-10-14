@@ -1,0 +1,11 @@
+a) ¿Qué es ICMP y para qué se usa? ¿Transporta datos de aplicaciones?
+ICMP (Internet Control Message Protocol) es un protocolo de la capa de red que se utiliza principalmente para el diagnóstico, la prueba de conectividad y el reporte de errores en las comunicaciones. A diferencia de TCP o UDP, no transporta datos de aplicaciones de los usuarios. Su propósito exclusivo es enviar mensajes de control sobre el estado y la operatividad de la red, como notificar si un host o router es inalcanzable.
+
+b) ¿Qué relación tiene con IP? ¿Dónde viaja y cómo se identifica?
+ICMP se considera una parte integral de IP, pero a nivel de encapsulamiento viaja dentro de IP. Los mensajes ICMP se empaquetan en la porción de datos (payload) de un datagrama IP, tal como lo haría un segmento TCP. El receptor sabe que el paquete IP contiene un mensaje ICMP porque revisa el campo "Protocolo" en la cabecera IPv4, el cual tiene asignado el valor 1 (o el valor 58 en el campo "Siguiente Cabecera" si es IPv6).
+
+c) ¿Qué hace ping? ¿Qué son Echo Request y Echo Reply? ¿Cómo se distinguen?
+La herramienta ping sirve para verificar que un equipo remoto sea accesible en la red y mide el tiempo que tarda un paquete en ir y volver. Para hacerlo, envía un mensaje Echo Request (solicitud de eco) al destino. Si el destino está activo y no bloquea este tráfico, devuelve un mensaje Echo Reply (respuesta de eco). Ambos se diferencian observando el campo "Tipo" dentro de la cabecera ICMP: el valor 8 identifica un Request, mientras que el valor 0 identifica un Reply.
+
+d) ¿Qué información mínima contiene un mensaje ICMP de tipo Echo?
+Un mensaje ICMP contiene además de los campos básicos de cualquier mensaje ICMP (Tipo, Código y Checksum para verificación de errores), los mensajes de tipo Echo incluyen obligatoriamente un Identificador (ID) y un Número de Secuencia. El Identificador suele corresponder al proceso del sistema que ejecutó el ping, y el Número de Secuencia aumenta con cada paquete enviado. Juntos, permiten que el equipo de origen empareje exactamente cada respuesta recibida con la solicitud enviada. Opcionalmente, incluyen un bloque de datos de relleno para darle tamaño al paquete.
