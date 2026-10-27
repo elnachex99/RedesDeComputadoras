@@ -9,6 +9,7 @@ Utilizamos un total de 3 computadoras asi todos los compañeros podian participa
 * Mascara de subred: 255.255.255.0
 
 A continuacion adjuntamos la configuración de la IPv4
+
 ![IPconfig](img/IPconfig.png)
 
 ![IPyMascara](img/IPyMascara.png)
