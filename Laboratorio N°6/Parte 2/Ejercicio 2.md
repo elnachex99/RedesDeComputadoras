@@ -25,9 +25,11 @@ Una vez realizados los cambios pasamos a la segunda etapa de conectar las comput
 Se verificó desde la computadora emisora que los paquetes lleguen correctamente.
 
 *Computadora emisora*
+
 ![PC3 Emisora](img/PC3%20Emisora.png)
 
 *Computadora receptora*
+
 ![PC1-Receptora](img/PC1-Receptora.png)
 
 Utilizando el wireshark pudimos capturar los paquetes recibidos.
