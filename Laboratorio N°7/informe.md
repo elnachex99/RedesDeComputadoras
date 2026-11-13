@@ -142,4 +142,64 @@ Se decodificó y obtuvimos el link del short:
 
 https://youtube.com/shorts/WCi5hu1EqqI?feature=share 
 
+# Reflexiones e investigacion 
 
+## Reflexión 1: 
+Dos errores en filas y columnas distintas. Fallan 2 filas y 2 columnas, así que el error se detecta pero no se puede corregir con certeza. Ya que hay 2 formas de emparejar filas con columnas, y la paridad no distingue cuál es la real. Fue lo que pasó en ambas tramas del reto.
+
+Otros casos:
+* Dos errores en la misma fila: La paridad de esa fila cierra de nuevo, así que solo fallan 2 columnas. Se detecta, pero no se sabe en qué fila.
+* Cuatro errores en las esquinas de un rectángulo:
+  *Todas las paridades cierran entonces el error no se detecta.
+
+ * Un bit de control dañado. Falla una sola fila o una sola columna, pero no ambas. No hay emparejamiento, los datos están bien, no hay que tocarlos. Un error en datos siempre hace fallar una fila y una columna y así lo emparejas, en cambio cuando es solo el bit de control, si corrigieras esa fila o columna para que coincida, estarías dañando un dato correcto.
+## Reflexión 2:
+
+El adivinar o corregir por contexto sirve cuando el mensaje tiene redundancia lingüística, como Hola mundo. Pero cuando cualquier símbolo es válido ya no es útil.
+* Contraseña o número de cuenta: Cualquier símbolo es válido podrías ser cualquiera y nada te indicaría que es válido por lo que no se puede adivinar/
+* Dirección web: en WCi5hu1EqqI (segunda trama), un carácter cualquiera podría ser otro, porque es un ID aleatorio. La u no se podría adivinar.
+
+El código nos permite hacer una verificación objetiva. Dice qué filas y columnas no cierran ubicando el bit si es un único error. Con más errores nos avisa que algo falló y si podemos llegar a corregir algo por contexto podemos ver si el nuevo bit verifica.
+
+## Reflexión 3: ¿Se pudo confirmar la corrección?
+Sí, se pudo confirmar usando el CHECK luego de haber hecho las correcciones. Además de los textos resultantes eran coherentes Pr3mi0!:)10-dIeZ, y la URL de YouTube era válida.
+
+## Reflexión 4:
+
+El Hamming(7,4) es un método de corrección de errores, su funcionamiento consiste en agregar 3 bits de paridad a 4 bits de datos, es decir codificar una palabra de 7 bits. Las posiciones se numeran del 1 al 7:
+
+* Posición 1 -> p1
+* Posición 2 -> p2
+* Posición 3 -> d1
+* Posición 4 -> p4
+* Posición 5 -> d2
+* Posición 6 -> d3
+* Posición 7 -> d4
+
+Los bits de paridad ocupan las posiciones que son potencias de 2. Cada uno cubre las posiciones cuyo número en binario tiene encendido el bit correspondiente:
+
+* p1 -> 1,3,5,7
+* p2 -> 2,3,6,7
+* p4 -> 4,5,6,7
+
+Al recibir el mensaje, el receptor recalcula las tres paridades. Si alguna no coincide, los bits de control que fallan revelan la posición exacta del error mediante una suma directa.
+Por ejemplo, si fallan las paridades p1 y p4, el error está en la posición 1+4 = 5.
+El receptor invierte ese bit y el dato queda corregido.
+
+
+Es superior a la paridad bidimensional del laboratorio por:
+* Velocidad y tamaño de bloque: La paridad bidimensional requiere almacenar una matriz completa en memoria antes de poder cruzar filas y columnas para buscar errores. Hamming (7,4) corrige de forma continua en pequeños bloques de 7 bits.
+
+* *Precisión matemática ante colisiones: En la paridad bidimensional, si hay 2 errores que caen la misma fila pero distinta columna, la paridad de la fila vuelve su valor de paridad (se anulan) y se pierde cual es el bit fallado. En cambio Hamming garantiza  la detección y corrección del bit corrupto.
+
+*Aplicación práctica sobre la carga útil:*
+Usaremos la carga útil del tercer reto Pr3mi0!:)10-dIeZ
+La letra "P" en ASCII equivale a 10100000 (7bits).
+Para transmitirla con Hamming (7,4), tomamos sus primeros 4 bits (1010):
+* d1=1,d2=0.d3=1,d4=0
+* p1 -> cubre p1,d1,d2,d4 -> son 1,0,0. Para ser par p1 = 1
+* p2 -> cubre p2,d1,d3,d4 -> son 1,1,0. Ya es par, p2 = 0
+* p4 -> cubre p4,d2,d3,d4 -> son 0,1,0. Para ser par. p4 = 1
+
+El paquete listo para transmitir:
+1 0 1 1 0 1 0
