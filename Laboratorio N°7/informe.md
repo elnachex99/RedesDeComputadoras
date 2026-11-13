@@ -40,7 +40,7 @@
 La lectura consistente es que `SIZE` cuenta **caracteres de 7 bits**: una matriz de 4×4 caracteres, es decir, **4 filas × 28 columnas de bits**.
 
 $$
-\frac{112}{28} = 4
+\frac{112}{28} = 4 filas
 $$
 
 La verificación con `CHECK` también cierra: 4 bits de paridad de filas + 28 de columnas = **32 bits**. Es la única forma de coincidan, ya que R × C = 112 y R + C = 32 solo tienen solución con 4 y 28.
@@ -76,3 +76,65 @@ Se comprobo que el check coincide con la nueva paridad
 ![Resultado](evidenciasTercerReto/decoCorregida.png)
 
 > **`Pr3mi0!:)10-dIeZ`**
+
+## Segunda Trama
+
+**Captura en Wireshark**
+
+![CapturaTrama2](evidenciasSegundoReto/CapturaTrama2.jpeg)
+
+### Interpretacion de las dimesion de la matriz
+
+Las dimensiones de la matriz son 10 filas por 6 columnas, con una `PL` de 420 bits y un `CHECK` de 52 bits. Teniendo estos datos y siguiendo la misma linea que para el 3er caso: 
+
+$$
+\frac{420 bits}{10 filas} = 42 bits/fila      
+$$
+
+entonces para 6 columnas, son : 
+
+$$
+\frac{42 bits}{6 columnas} = 7 bits/columna     
+$$
+
+y 42 + 10 = 52 que es la cantidad de bits del `CHECK`.
+
+### 3.3 Verificación de la paridad (síndrome)
+
+Se armo la matriz, se calcula la paridad y se comparo con  el `CHECK`
+
+![sindrome](evidenciasSegundoReto/CheckYparidadSinCorregir.png)
+
+Lo que dio varios bits erroneos lo que no permite corregirlos usando la paridad. 
+
+### Decodificacion sin correción
+
+Decodificamos la trama para ver si el conexto ayudaba y obtuvimos:
+
+xttps://youtube.com/shortw/WCi5h}1EqqI?featurm=share  
+
+Un link a youtube, que a simple vista estaba mal en su formato, por lo que buscasmo en la trama y corregimos:
+
+* `x` -> `h`
+* `w` -> `s`
+* `}` -> `u`  una ID de youtube no puede llevar una llave
+* `m` -> `e`
+
+Luego de corregir x, w y m se busco en la matriz el } y uno de sus bits coincidia en fila y columna con un error en la paridad por lo que se inivirtio ese bit quedando en lugar de la llave una u
+
+### Comprobacion
+
+![verificacion con correciones](evidenciasSegundoReto/CheckyParidadCorregida.png)
+
+Esta vez coincidiendo todos los bits.
+
+### Resultado
+
+Se decodifco y obtuvimos el link del short:
+
+https://youtube.com/shorts/WCi5hu1EqqI?feature=share    
+
+
+
+
+
